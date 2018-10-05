@@ -1,7 +1,7 @@
-package service;
+package com.adp.evintegration.service;
 
 import com.adp.evintegration.model.SubscriptionLogModel;
-import dao.SubscriptionLogDao;
+import com.adp.evintegration.dao.SubscriptionLogDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

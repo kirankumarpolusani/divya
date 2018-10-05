@@ -4,13 +4,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "OFFLINE_SUBSCRIPTION_LOG")
-public class SubscriptionLogModel {
+public class SubscriptionLogModel implements Serializable{
 
-    @Column(name = "OOID")
+	private static final long serialVersionUID = -5424089193292562829L;
+
+	@Column(name = "OOID")
     @Id
     private String orgId;
 
@@ -21,6 +27,7 @@ public class SubscriptionLogModel {
     private String response;
 
     @Column(name = "REQUEST_DATE_TIME", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date requestDate;
 
     @Column(name = "STATUS", nullable = true)

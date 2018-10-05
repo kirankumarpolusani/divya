@@ -1,14 +1,18 @@
 package com.adp.evintegration.controller;
 
-import com.adp.evintegration.model.SubscriptionLogModel;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import service.SubscriptionLogService;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.adp.evintegration.model.SubscriptionLogModel;
+import com.adp.evintegration.service.SubscriptionLogService;
 
 @RestController
 @RequestMapping("/sublog")
@@ -38,8 +42,8 @@ public class SubscriptionLogController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Optional<SubscriptionLogModel> getSubscriptionLog(@PathVariable String orgId) {
-        return this.subscriptionLogService.getSubscriptionLogById(orgId);
+    public Optional<SubscriptionLogModel> getSubscriptionLog(@PathVariable String id) {
+        return this.subscriptionLogService.getSubscriptionLogById(id);
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.DELETE)
@@ -48,8 +52,8 @@ public class SubscriptionLogController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteSubscriptionLog(@PathVariable String orgId) {
-        this.subscriptionLogService.deleteSubscriptionLogById(orgId);
+    public void deleteSubscriptionLog(@PathVariable String id) {
+        this.subscriptionLogService.deleteSubscriptionLogById(id);
     }
     
 }

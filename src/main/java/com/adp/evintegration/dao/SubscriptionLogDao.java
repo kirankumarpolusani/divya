@@ -1,4 +1,4 @@
-package dao;
+package com.adp.evintegration.dao;
 
 import com.adp.evintegration.model.SubscriptionLogModel;
 import org.springframework.data.jpa.repository.JpaRepository;
